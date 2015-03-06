@@ -1,6 +1,6 @@
 {
   "name": "travhaller",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Amadox",
     "email": "travhaller@amadox.org"
@@ -26,7 +26,6 @@
   "dependencies": {
     "q": "^1.2.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "main": "src/travhaller.js"
 }
