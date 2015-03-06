@@ -19,7 +19,7 @@ var travhaller = require('travhaller');
 
 ## Usage
 
-###Creating a Travhaller Node###
+**Creating a Travhaller Node**
 
 
 ```javascript
@@ -45,7 +45,7 @@ var depperEntryPointPromise = travhaller.get(
 );
 ```
 
-###Using the Travhaller Node###
+**Using the Travhaller Node** 
 
 Once you have a Node, you can start exploring the API:
 
@@ -65,7 +65,7 @@ travhaller.get('http://api.amadev.org/api/maze').then(function(rootNode) {
 });
 ```
 
-##Future Plans
+## Future Plans
 
 Travhaller is very much work in progress and more of a concept study than actually useful, certainly not production ready. I do however intend to expand and add to this. The current version of Travhaller is read-only, but it won't stay that way. 
 
