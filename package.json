@@ -1,0 +1,32 @@
+{
+  "name": "travhaller",
+  "version": "0.1.0",
+  "author": {
+    "name": "Amadox",
+    "email": "travhaller@amadox.org"
+  },
+  "license": "MIT",
+  "description": "A simple HAL+JSON API Client",
+  "keywords": [
+    "HAL",
+    "JSON",
+    "REST",
+    "API",
+    "HATEOAS",
+    "hypertext",
+    "hypermedia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amadox/travhaller.git"
+  },
+  "bugs": {
+    "email": "travhaller@amadox.org"
+  },
+  "dependencies": {
+    "q": "^1.2.0"
+  },
+  "devDependencies": {
+  },
+  "main": "src/travhaller.js"
+}
