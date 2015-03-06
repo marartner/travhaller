@@ -1,6 +1,8 @@
 # Travhaller
 A simple [HAL+JSON](http://stateless.co/hal_specification.html) API Client (Work in Progress)
 
+[![NPM](https://nodei.co/npm/travhaller.png?downloads=true&stars=true)](https://nodei.co/npm/travhaller/)
+
 ## Install
 
 travhaller is available as npm module:
@@ -9,7 +11,7 @@ travhaller is available as npm module:
 npm install travhaller
 ```
 
-It can be used in browsers via browserify:
+It can be used in NodeJS or in browsers via browserify:
 
 ```javascript
 var travhaller = require('travhaller');
@@ -52,7 +54,7 @@ The `getResource()` method allows you to get the actual API Response. With `foll
 *For example:*
 
 ```javascript
-// Get and Output the Root Resource
+// Get the Root Resource
 travhaller.get('http://api.amadev.org/api/maze').then(function(rootNode) {
     console.log('Root Resource', rootNode.getResource());
     
