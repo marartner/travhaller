@@ -49,7 +49,7 @@ var depperEntryPointPromise = travhaller.get(
 
 Once you have a Node, you can start exploring the API:
 
-The `getResource()` method allows you to get the actual API Response. With `follow()` you can follow a link of that node to get another Node. 
+The `getResource()` method allows you to get the actual API Response. With `follow()` you can follow a link of that node to get another Node. If there exists an _embedded Resource with the given name, it will be used instead of querying the server, as specified in the [HAL+JSON Draft](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-8.3)
 
 *For example:*
 
