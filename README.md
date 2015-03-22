@@ -37,11 +37,11 @@ Creating a Node will automatically query the API, returning a Promise to a Travh
 *For example:*
 
 ```javascript
-var rootEntryPointPromise = travhaller.get('http://api.amadev.org/api/maze');
+var rootEntryPointPromise = travhaller.get('http://api.amadev.org/maze');
 
 var depperEntryPointPromise = travhaller.get(
-	'http://api.amadev.org/api/maze/60/30/1868521123/576476861', 
-    'http://api.amadev.org/api/maze'
+	'http://api.amadev.org/maze/60/30/1868521123/576476861', 
+    'http://api.amadev.org/maze'
 );
 ```
 
@@ -49,13 +49,13 @@ var depperEntryPointPromise = travhaller.get(
 
 Once you have a Node, you can start exploring the API:
 
-The `getResource()` method allows you to get the actual API Response. With `follow()` you can follow a link of that node to get another Node. If there exists an _embedded Resource with the given name, it will be used instead of querying the server, as specified in the [HAL+JSON Draft](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-8.3)
+The `getResource()` method allows you to get the actual API Response. With `follow()` you can follow a link of that node to get another Node. If an _embedded Resource with the given name exists, it will be used (unless the `useEmbedded` Parameter of `follow()` is set to false) instead of querying the server, as specified in the [HAL+JSON Draft](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-8.3)
 
 *For example:*
 
 ```javascript
 // Get the Root Resource
-travhaller.get('http://api.amadev.org/api/maze').then(function(rootNode) {
+travhaller.get('http://api.amadev.org/maze').then(function(rootNode) {
     console.log('Root Resource', rootNode.getResource());
     
     // Follow the Root Resource's 'start' link

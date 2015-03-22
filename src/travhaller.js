@@ -1,8 +1,8 @@
 var Q = require('q');
 
 /**
- * @param url       an API Url to query
- * @param rootUrl   (optional) the Root of the API, in case it differs from the <url> given
+ * @param {string} url       an API Url to query
+ * @param {string} rootUrl   (optional) the Root of the API, in case it differs from the <url> given
  * @return Promise
  */
 var createTravhallerNodePromise = function (url, rootUrl) {
@@ -49,23 +49,26 @@ var TravhallerNode = function(rootUrl, resource) {
     var _resource = resource;
 
     /**
-     * @param linkname
+     * @param {string} linkname
+     * @param {boolean} useEmbedded
      * @returns Promise
      */
-    this.follow = function (linkname) {
+    this.follow = function (linkname, useEmbedded) {
+        useEmbedded = (useEmbedded !== undefined) ? useEmbedded : true;
         var embedded = _resource._embedded || {};
         var links = _resource._links || {};
 
         // use embedded resource
-        if (embedded[linkname] !== undefined) {
+        if ((embedded[linkname] !== undefined) && useEmbedded) {
             return Q.Promise(function(resolve) {
                 resolve(new TravhallerNode(rootUrl, embedded[linkname]));
             });
 
-            // use link
+        // use link
         } else if (links[linkname] !== undefined) {
             var linkUrl = _rootUrl + links[linkname].href;
             return createTravhallerNodePromise(linkUrl, _rootUrl);
+
         } else {
             return TravhallerError("Can't follow link '" + linkname + "' because it does not exist in current resource.");
         }
@@ -78,6 +81,9 @@ var TravhallerNode = function(rootUrl, resource) {
         return _resource;
     };
 
+    /**
+     * @returns {string}
+     */
     this.getRootUrl = function() {
         return _rootUrl;
     };
@@ -88,7 +94,6 @@ var TravhallerNode = function(rootUrl, resource) {
     };
 
     this.refresh = function() {
-
         var url = _resource._links.self.href;
         return createTravhallerNodePromise(_rootUrl + url, _rootUrl);
     };
